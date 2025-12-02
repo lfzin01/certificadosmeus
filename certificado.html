@@ -1174,7 +1174,7 @@
                 hours: "2 horas",
                 type: "Cultural",
                 location: "IFNMG Campus Janaúba",
-                description: "Participação em apresentação cultural que destacou talentos artísticos da comunidade acadêmica, promovendo integração e valorização das expressões culturais.",
+                description: "Participação em apresentação cultural que destacou talentos artísticos da comunidade acadêmica, promovendo integração e valorização das expressões cultural.",
                 skills: "Apreciação artística, integração comunitária, valorização da diversidade cultural.",
                 category: "cultural",
                 file: "Certificado Luiz F (14).pdf"
@@ -1485,7 +1485,9 @@
                                     <button class="btn btn-sm btn-outline-light" onclick="viewCertificate(${cert.id})">
                                         <i class="bi bi-eye"></i> Detalhes
                                     </button>
-                                    <span class="badge-certificado">Certificado ${cert.id}</span>
+                                    <a href="${cert.file}" download class="btn btn-sm btn-primary">
+                                        <i class="bi bi-download"></i> PDF
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -1534,108 +1536,59 @@
                     });
                 });
             }
+
+            // Inicializa o modal
+            const certificateModal = new bootstrap.Modal(document.getElementById('certificateModal'));
         });
 
+        // Função para visualizar certificado no modal
+        function viewCertificate(certId) {
+            const cert = certificatesData.find(c => c.id === certId);
+            if (!cert) return;
+            
+            document.getElementById('modal-certificate-title').textContent = cert.title;
+            document.getElementById('modal-certificate-issuer').textContent = cert.issuer;
+            document.getElementById('modal-certificate-date').textContent = cert.date;
+            document.getElementById('modal-certificate-hours').textContent = cert.hours;
+            document.getElementById('modal-certificate-type').textContent = cert.type;
+            document.getElementById('modal-certificate-location').textContent = cert.location;
+            document.getElementById('modal-certificate-description').textContent = cert.description;
+            document.getElementById('modal-certificate-skills').textContent = cert.skills;
+            
+            // Armazena o nome do arquivo para download
+            document.getElementById('certificateModal').dataset.fileName = cert.file;
+            document.getElementById('certificateModal').dataset.certId = cert.id;
+            
+            // Abre o modal
+            const modal = new bootstrap.Modal(document.getElementById('certificateModal'));
+            modal.show();
+        }
 
-
-
-
-
-
-        
-// Na função viewCertificate (substituir a função atual):
-function viewCertificate(certId) {
-    const cert = certificatesData.find(c => c.id === certId);
-    if (!cert) return;
-    
-    document.getElementById('modal-certificate-title').textContent = cert.title;
-    document.getElementById('modal-certificate-issuer').textContent = cert.issuer;
-    document.getElementById('modal-certificate-date').textContent = cert.date;
-    document.getElementById('modal-certificate-hours').textContent = cert.hours;
-    document.getElementById('modal-certificate-type').textContent = cert.type;
-    document.getElementById('modal-certificate-location').textContent = cert.location;
-    document.getElementById('modal-certificate-description').textContent = cert.description;
-    document.getElementById('modal-certificate-skills').textContent = cert.skills;
-    
-    // Armazena o nome do arquivo para download
-    document.getElementById('certificateModal').dataset.fileName = cert.file;
-    document.getElementById('certificateModal').dataset.certId = cert.id;
-    
-    // Abre o modal
-    const modal = new bootstrap.Modal(document.getElementById('certificateModal'));
-    modal.show();
-}
-
-// Nova função para download real:
-function downloadCertificate() {
-    const modal = document.getElementById('certificateModal');
-    const fileName = modal.dataset.fileName;
-    const certId = modal.dataset.certId;
-    
-    if (!fileName) {
-        alert("Arquivo não encontrado!");
-        return;
-    }
-    
-    // Aqui você precisa garantir que os arquivos PDF estejam na mesma pasta
-    // ou em uma pasta específica (ex: 'certificados/')
-    const filePath = `certificados/${fileName}`; // Ajuste o caminho conforme necessário
-    
-    // Cria um link temporário para download
-    const downloadLink = document.createElement('a');
-    downloadLink.href = filePath;
-    downloadLink.download = fileName;
-    downloadLink.style.display = 'none';
-    
-    document.body.appendChild(downloadLink);
-    downloadLink.click();
-    document.body.removeChild(downloadLink);
-}
-
-
-
-
-
-
-
-
-
-
-      // Na função loadCertificates, modifique a parte que gera o HTML dos cards:
-const certificateHTML = `
-    <div class="col-lg-4 col-md-6 certificate-item" data-category="${cert.category}">
-        <div class="certificate-card">
-            <div class="certificate-icon">
-                <i class="bi ${iconClass}"></i>
-            </div>
-            <h3 class="certificate-title">${cert.title}</h3>
-            <div class="certificate-issuer">${cert.issuer}</div>
-            <div class="certificate-date">
-                <i class="bi bi-calendar"></i> ${cert.date}
-            </div>
-            <div class="certificate-hours">
-                <i class="bi bi-clock"></i> Carga horária: <strong>${cert.hours}</strong>
-            </div>
-            <div class="certificate-tags">
-                <span class="certificate-tag">${cert.type}</span>
-                <span class="certificate-tag">${cert.location.includes('IFNMG') ? 'IFNMG' : cert.location}</span>
-            </div>
-            <div class="certificate-links">
-                <button class="btn btn-sm btn-outline-light" onclick="viewCertificate(${cert.id})">
-                    <i class="bi bi-eye"></i> Detalhes
-                </button>
-                <a href="certificados/${cert.file}" download class="btn btn-sm btn-primary">
-                    <i class="bi bi-download"></i> PDF
-                </a>
-            </div>
-        </div>
-    </div>
-`;
-
-
-
-
-
+        // Função para download de certificado
+        function downloadCertificate() {
+            const modal = document.getElementById('certificateModal');
+            const fileName = modal.dataset.fileName;
+            const certId = modal.dataset.certId;
+            
+            if (!fileName) {
+                alert("Arquivo não encontrado!");
+                return;
+            }
+            
+            // Tenta fazer download direto
+            const downloadLink = document.createElement('a');
+            downloadLink.href = fileName;
+            downloadLink.download = fileName;
+            downloadLink.style.display = 'none';
+            
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+            
+            // Fecha o modal após download
+            const modalInstance = bootstrap.Modal.getInstance(document.getElementById('certificateModal'));
+            modalInstance.hide();
+        }
     </script>
 </body>
 </html>
