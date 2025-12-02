@@ -524,7 +524,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 0.5rem;
         }
 
         /* --- Filtros de Certificados --- */
@@ -812,15 +811,6 @@
                 width: 150px;
                 height: 150px;
             }
-            
-            .certificate-links {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .certificate-links .btn {
-                width: 100%;
-            }
         }
 
         @media (max-width: 576px) {
@@ -835,70 +825,25 @@
             .section {
                 padding: 4rem 0;
             }
-            
-            .back-to-portfolio {
-                bottom: 20px;
-                right: 75px;
-            }
-        }
-        
-        /* --- Melhorias de performance e acessibilidade --- */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-        
-        .loading-spinner {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: var(--accent-color);
-            animation: spin 1s ease-in-out infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        .pdf-preview {
-            max-width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #4d5bce, #6a7aea);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
         }
     </style>
 </head>
 <body data-theme="dark">
     <!-- Botão Voltar ao Topo -->
-    <a href="#" class="back-to-top" aria-label="Voltar ao topo">
+    <a href="#" class="back-to-top">
         <i class="bi bi-chevron-up"></i>
     </a>
 
     <!-- Botão Voltar ao Portfólio -->
-    <a href="portfolio.html" class="back-to-portfolio" title="Voltar ao Portfólio" aria-label="Voltar ao portfólio">
+    <a href="portfolio.html" class="back-to-portfolio" title="Voltar ao Portfólio">
         <i class="bi bi-arrow-left"></i>
     </a>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-glass">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#" aria-label="Luiz Fernando | Página inicial">Luiz Fernando | Certificados</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand fw-bold" href="#">Luiz Fernando | Certificados</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -907,7 +852,7 @@
                     <li class="nav-item"><a class="nav-link" href="#estatisticas">Estatísticas</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
                     <li class="nav-item">
-                        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+                        <button class="theme-toggle" id="themeToggle">
                             <i class="bi bi-moon-fill"></i>
                         </button>
                     </li>
@@ -920,7 +865,7 @@
     <header class="hero-section d-flex align-items-center justify-content-center text-center">
         <div class="hero-content">
             <div class="hero-image-container">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Foto de Luiz Fernando" class="foto-perfil floating" loading="lazy">
+                <img src="Gemini_Generated_Image_2e01re2e01re2e01.png" alt="Foto de Luiz Fernando" class="foto-perfil floating">
                 <div class="hero-glow"></div>
             </div>
             <h1 class="hero-title">Certificados e Qualificações</h1>
@@ -971,7 +916,7 @@
                 
                 <!-- Filtros -->
                 <div class="filter-container mb-5">
-                    <h3 class="text-center mb-3 h4">Filtrar por Categoria</h3>
+                    <h4 class="text-center mb-3">Filtrar por Categoria</h4>
                     <div class="filter-buttons">
                         <button class="filter-btn active" data-filter="all">Todos</button>
                         <button class="filter-btn" data-filter="minicurso">Minicursos</button>
@@ -986,12 +931,6 @@
                 <!-- Grid de Certificados -->
                 <div class="row g-4" id="certificates-grid">
                     <!-- Certificados serão carregados via JavaScript -->
-                </div>
-                
-                <!-- Mensagem de carregamento -->
-                <div id="loading-message" class="text-center mt-4">
-                    <div class="loading-spinner"></div>
-                    <p class="mt-2">Carregando certificados...</p>
                 </div>
             </div>
         </section>
@@ -1010,13 +949,13 @@
             </div>
             
             <div class="social-links mb-5">
-                <a href="https://www.linkedin.com/in/luiz-fernando001" target="_blank" class="social-link" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/luiz-fernando001" target="_blank" class="social-link">
                     <i class="bi bi-linkedin"></i>
                 </a>
-                <a href="https://github.com/lfzin01" target="_blank" class="social-link" aria-label="GitHub">
+                <a href="https://github.com/lfzin01" target="_blank" class="social-link">
                     <i class="bi bi-github"></i>
                 </a>
-                <a href="portfolio.html" class="social-link" title="Voltar ao Portfólio" aria-label="Portfólio">
+                <a href="portfolio.html" class="social-link" title="Voltar ao Portfólio">
                     <i class="bi bi-person-circle"></i>
                 </a>
             </div>
@@ -1035,9 +974,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="modal-certificate-preview">
-                        <div class="pdf-preview">
-                            <i class="bi bi-file-earmark-pdf" style="font-size: 3rem;"></i>
-                        </div>
+                        <i class="bi bi-award" style="font-size: 4rem; color: var(--accent-color);"></i>
                         <h4 id="modal-certificate-title" class="mt-3">Título do Certificado</h4>
                         <p class="mb-0" id="modal-certificate-issuer">Instituição Emissora</p>
                     </div>
@@ -1072,9 +1009,9 @@
                     </div>
                     
                     <div class="text-center">
-                        <a id="modal-download-link" href="#" class="btn btn-primary" download>
+                        <button class="btn btn-primary" onclick="downloadCertificate()">
                             <i class="bi bi-download"></i> Baixar Certificado (PDF)
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1097,7 +1034,7 @@
                 description: "Participação completa na III Semana Integrada do Conhecimento do IFNMG Campus Janaúba, envolvendo-se em diversas atividades acadêmicas, culturais e científicas ao longo dos quatro dias de evento.",
                 skills: "Participação em eventos acadêmicos, networking, aprendizado multidisciplinar, organização de tempo.",
                 category: "evento",
-                file: "certificados/Certificado Luiz F (1).pdf"
+                file: "Certificado Luiz F (1).pdf"
             },
             {
                 id: 2,
@@ -1110,7 +1047,7 @@
                 description: "Minicurso sobre o ciclo hidrológico e a influência do fenômeno El Niño-Oscilação do Sul (ENOS) na recarga de aquíferos no norte de Minas Gerais. Abordagem sobre sustentabilidade hídrica e mudanças climáticas.",
                 skills: "Ciclo hidrológico, climatologia, gestão de recursos hídricos, sustentabilidade ambiental.",
                 category: "minicurso",
-                file: "certificados/Certificado Luiz F (7).pdf"
+                file: "Certificado Luiz F (7).pdf"
             },
             {
                 id: 3,
@@ -1123,7 +1060,7 @@
                 description: "Apresentação de trabalho científico no evento, demonstrando habilidades de comunicação científica, organização de conteúdo e domínio do tema apresentado.",
                 skills: "Comunicação científica, apresentação pública, organização de conteúdo, domínio de tema específico.",
                 category: "apresentacao",
-                file: "certificados/Certificado Luiz F (9).pdf"
+                file: "Certificado Luiz F (9).pdf"
             },
             {
                 id: 4,
@@ -1136,7 +1073,7 @@
                 description: "Minicurso sobre os desafios e soluções para regeneração natural em ambientes degradados, com foco no estresse hídrico e estratégias de recuperação ambiental.",
                 skills: "Ecologia, regeneração ambiental, gestão de recursos hídricos, sustentabilidade.",
                 category: "minicurso",
-                file: "certificados/Certificado Luiz F (3).pdf"
+                file: "Certificado Luiz F (3).pdf"
             },
             {
                 id: 5,
@@ -1149,7 +1086,7 @@
                 description: "Minicurso sobre a riqueza cultural dos contos africanos, explorando narrativas tradicionais, simbologias e a importância da preservação das tradições orais na construção identitária.",
                 skills: "Literatura africana, análise narrativa, diversidade cultural, compreensão de simbolismos.",
                 category: "minicurso",
-                file: "certificados/Certificado Luiz F (4).pdf"
+                file: "Certificado Luiz F (4).pdf"
             },
             {
                 id: 6,
@@ -1162,7 +1099,7 @@
                 description: "Apresentação cultural envolvendo peça teatral e documentário sobre a cultura sertaneja, explorando tradições, histórias e expressões artísticas características do sertão brasileiro.",
                 skills: "Apreciação cultural, compreensão de expressões artísticas, valorização do patrimônio cultural.",
                 category: "cultural",
-                file: "certificados/Certificado Luiz F (5).pdf"
+                file: "Certificado Luiz F (5).pdf"
             },
             {
                 id: 7,
@@ -1175,7 +1112,7 @@
                 description: "Oficina prática sobre produção de mini hortas, abordando técnicas de cultivo em pequenos espaços, cuidados com plantas e importância da agricultura urbana para sustentabilidade.",
                 skills: "Cultivo de plantas, agricultura urbana, sustentabilidade, cuidado com o meio ambiente.",
                 category: "oficina",
-                file: "certificados/Certificado Luiz F (6).pdf"
+                file: "Certificado Luiz F (6).pdf"
             },
             {
                 id: 8,
@@ -1188,7 +1125,7 @@
                 description: "Oficina prática sobre primeiros socorros, abordando técnicas essenciais para atendimento imediato em situações de emergência, com foco em procedimentos básicos que podem salvar vidas.",
                 skills: "Primeiros socorros, atendimento de emergência, calma sob pressão, procedimentos de segurança.",
                 category: "oficina",
-                file: "certificados/Certificado Luiz F (8).pdf"
+                file: "Certificado Luiz F (8).pdf"
             },
             {
                 id: 9,
@@ -1201,7 +1138,7 @@
                 description: "Minicurso prático sobre criação de jogos educativos utilizando a plataforma Scratch, com foco na conscientização sobre o uso responsável da água. Desenvolvimento de lógica de programação e design de jogos educacionais.",
                 skills: "Programação básica, lógica de programação, Scratch, desenvolvimento de jogos, educação ambiental.",
                 category: "minicurso",
-                file: "certificados/Certificado Luiz F (11).pdf"
+                file: "Certificado Luiz F (11).pdf"
             },
             {
                 id: 10,
@@ -1214,7 +1151,7 @@
                 description: "Palestra sobre a importância dos oceanos para a evolução da vida no planeta Terra, abordando aspectos históricos, biológicos e ambientais da relação entre os seres vivos e os ecossistemas marinhos.",
                 skills: "Conhecimento sobre biologia marinha, evolução, ecossistemas oceânicos, conscientização ambiental.",
                 category: "palestra",
-                file: "certificados/Certificado Luiz F (12).pdf"
+                file: "Certificado Luiz F (12).pdf"
             },
             {
                 id: 11,
@@ -1227,7 +1164,7 @@
                 description: "Oficina técnica sobre o uso de PEG (Polietilenoglicol) como ferramenta para diagnóstico de tolerância hídrica em plantas nativas, com aplicações práticas em pesquisas ambientais.",
                 skills: "Técnicas laboratoriais, fisiologia vegetal, pesquisa científica, análise de dados.",
                 category: "oficina",
-                file: "certificados/Certificado Luiz F (13).pdf"
+                file: "Certificado Luiz F (13).pdf"
             },
             {
                 id: 12,
@@ -1240,7 +1177,7 @@
                 description: "Participação em apresentação cultural que destacou talentos artísticos da comunidade acadêmica, promovendo integração e valorização das expressões culturais.",
                 skills: "Apreciação artística, integração comunitária, valorização da diversidade cultural.",
                 category: "cultural",
-                file: "certificados/Certificado Luiz F (14).pdf"
+                file: "Certificado Luiz F (14).pdf"
             },
             {
                 id: 13,
@@ -1253,7 +1190,7 @@
                 description: "Apresentação sobre o programa 'Mais ciência na escola', destacando iniciativas para popularização da ciência e estímulo à pesquisa no ambiente escolar.",
                 skills: "Divulgação científica, educação, comunicação, planejamento de projetos educacionais.",
                 category: "apresentacao",
-                file: "certificados/Certificado Luiz F (15).pdf"
+                file: "Certificado Luiz F (15).pdf"
             },
             {
                 id: 14,
@@ -1266,7 +1203,7 @@
                 description: "Minicurso sobre o uso de narrativas orais relacionadas à água como recurso para desenvolvimento de habilidades de escrita e argumentação, conectando tradição oral e produção textual.",
                 skills: "Escrita criativa, argumentação, pesquisa qualitativa, preservação cultural.",
                 category: "minicurso",
-                file: "certificados/Certificado Luiz F (16).pdf"
+                file: "Certificado Luiz F (16).pdf"
             },
             {
                 id: 15,
@@ -1279,7 +1216,7 @@
                 description: "Oficina básica de Libras (Língua Brasileira de Sinais), introduzindo conceitos fundamentais da comunicação em sinais e promovendo inclusão e acessibilidade.",
                 skills: "Libras básico, comunicação inclusiva, acessibilidade, empatia social.",
                 category: "oficina",
-                file: "certificados/Certificado Luiz F (17).pdf"
+                file: "Certificado Luiz F (17).pdf"
             },
             {
                 id: 16,
@@ -1292,7 +1229,7 @@
                 description: "Minicurso sobre as cosmologias indígenas brasileiras, explorando narrativas sagradas, mitologias e visões de mundo dos povos originários.",
                 skills: "Antropologia cultural, estudos indígenas, diversidade epistemológica, respeito à diversidade.",
                 category: "minicurso",
-                file: "certificados/Certificado Luiz F (18).pdf"
+                file: "Certificado Luiz F (18).pdf"
             },
             {
                 id: 17,
@@ -1305,7 +1242,7 @@
                 description: "Segundo certificado de participação completa na III Semana Integrada do Conhecimento, confirmando a participação em todas as atividades do evento.",
                 skills: "Comprometimento, participação ativa, engajamento acadêmico, aprendizado contínuo.",
                 category: "evento",
-                file: "certificados/Certificado Luiz F (19).pdf"
+                file: "Certificado Luiz F (19).pdf"
             },
             {
                 id: 18,
@@ -1318,7 +1255,7 @@
                 description: "Atuação como apresentador de trabalhos científicos durante a III Semana Integrada do Conhecimento, demonstrando habilidades de mediação, comunicação e conhecimento sobre os trabalhos apresentados.",
                 skills: "Mediação científica, comunicação efetiva, organização de eventos, conhecimento multidisciplinar.",
                 category: "apresentacao",
-                file: "certificados/Certificado Luiz F (20).pdf"
+                file: "Certificado Luiz F (20).pdf"
             },
             {
                 id: 19,
@@ -1331,7 +1268,7 @@
                 description: "Apresentação detalhada de trabalhos científicos durante o evento, com exposição de metodologias, resultados e discussões pertinentes às pesquisas desenvolvidas.",
                 skills: "Apresentação científica, análise crítica, metodologia de pesquisa, comunicação acadêmica.",
                 category: "apresentacao",
-                file: "certificados/Certificado Luiz F (21).pdf"
+                file: "Certificado Luiz F (21).pdf"
             },
             {
                 id: 20,
@@ -1344,7 +1281,7 @@
                 description: "Minicurso online sobre técnicas de reconhecimento de padrões e classificação de imagens utilizando a biblioteca Pytorch, introduzindo conceitos de inteligência artificial e aprendizado de máquina.",
                 skills: "Inteligência artificial, Pytorch, reconhecimento de padrões, processamento de imagens, programação em Python.",
                 category: "minicurso",
-                file: "certificados/Certificado Luiz F (10).pdf"
+                file: "Certificado Luiz F (10).pdf"
             },
             {
                 id: 21,
@@ -1357,7 +1294,7 @@
                 description: "Apresentação cultural do projeto 'Bamberê & Bangulé: Ancestralidade e Protagonismo Negro na Dança e Canto Quilombola', incluindo exibição do documentário 'Raízes Ancestrais em Movimento: Entre Tambores e Memórias'.",
                 skills: "Valorização da cultura afro-brasileira, análise documental, consciência histórica, apreciação artística.",
                 category: "cultural",
-                file: "certificados/Certificado Luiz F (2).pdf"
+                file: "Certificado Luiz F (2).pdf"
             }
         ];
 
@@ -1511,74 +1448,53 @@
 
             function loadCertificates() {
                 const certificatesGrid = document.getElementById('certificates-grid');
-                const loadingMessage = document.getElementById('loading-message');
                 
-                // Simula um pequeno atraso para mostrar o loading (opcional)
-                setTimeout(() => {
-                    certificatesData.forEach((cert, index) => {
-                        let iconClass = 'bi-award';
-                        
-                        // Define ícone baseado na categoria
-                        switch(cert.category) {
-                            case 'minicurso': iconClass = 'bi-book'; break;
-                            case 'apresentacao': iconClass = 'bi-mic'; break;
-                            case 'oficina': iconClass = 'bi-tools'; break;
-                            case 'palestra': iconClass = 'bi-megaphone'; break;
-                            case 'cultural': iconClass = 'bi-palette'; break;
-                            case 'evento': iconClass = 'bi-calendar-event'; break;
-                            default: iconClass = 'bi-award';
-                        }
-                        
-                        // Testa se o arquivo PDF existe
-                        const pdfExists = true; // Você pode implementar uma verificação real aqui
-                        
-                        const certificateHTML = `
-                            <div class="col-lg-4 col-md-6 certificate-item" data-category="${cert.category}">
-                                <div class="certificate-card">
-                                    <div class="certificate-icon">
-                                        <i class="bi ${iconClass}"></i>
-                                    </div>
-                                    <h3 class="certificate-title">${cert.title}</h3>
-                                    <div class="certificate-issuer">${cert.issuer}</div>
-                                    <div class="certificate-date">
-                                        <i class="bi bi-calendar"></i> ${cert.date}
-                                    </div>
-                                    <div class="certificate-hours">
-                                        <i class="bi bi-clock"></i> Carga horária: <strong>${cert.hours}</strong>
-                                    </div>
-                                    <div class="certificate-tags">
-                                        <span class="certificate-tag">${cert.type}</span>
-                                        <span class="certificate-tag">${cert.location.includes('IFNMG') ? 'IFNMG' : cert.location}</span>
-                                    </div>
-                                    <div class="certificate-links">
-                                        <button class="btn btn-sm btn-outline-light" onclick="viewCertificate(${cert.id})" aria-label="Ver detalhes do certificado">
-                                            <i class="bi bi-eye"></i> Detalhes
-                                        </button>
-                                        ${pdfExists ? 
-                                            `<a href="${cert.file}" class="btn btn-sm btn-primary" download aria-label="Baixar certificado PDF">
-                                                <i class="bi bi-download"></i> PDF
-                                            </a>` : 
-                                            `<span class="badge bg-secondary">PDF Indisponível</span>`
-                                        }
-                                    </div>
+                certificatesData.forEach((cert, index) => {
+                    let iconClass = 'bi-award';
+                    
+                    // Define ícone baseado na categoria
+                    switch(cert.category) {
+                        case 'minicurso': iconClass = 'bi-book'; break;
+                        case 'apresentacao': iconClass = 'bi-mic'; break;
+                        case 'oficina': iconClass = 'bi-tools'; break;
+                        case 'palestra': iconClass = 'bi-megaphone'; break;
+                        case 'cultural': iconClass = 'bi-palette'; break;
+                        case 'evento': iconClass = 'bi-calendar-event'; break;
+                        default: iconClass = 'bi-award';
+                    }
+                    
+                    const certificateHTML = `
+                        <div class="col-lg-4 col-md-6 certificate-item" data-category="${cert.category}">
+                            <div class="certificate-card">
+                                <div class="certificate-icon">
+                                    <i class="bi ${iconClass}"></i>
+                                </div>
+                                <h3 class="certificate-title">${cert.title}</h3>
+                                <div class="certificate-issuer">${cert.issuer}</div>
+                                <div class="certificate-date">
+                                    <i class="bi bi-calendar"></i> ${cert.date}
+                                </div>
+                                <div class="certificate-hours">
+                                    <i class="bi bi-clock"></i> Carga horária: <strong>${cert.hours}</strong>
+                                </div>
+                                <div class="certificate-tags">
+                                    <span class="certificate-tag">${cert.type}</span>
+                                    <span class="certificate-tag">${cert.location.includes('IFNMG') ? 'IFNMG' : cert.location}</span>
+                                </div>
+                                <div class="certificate-links">
+                                    <button class="btn btn-sm btn-outline-light" onclick="viewCertificate(${cert.id})">
+                                        <i class="bi bi-eye"></i> Detalhes
+                                    </button>
+                                    <span class="badge-certificado">Certificado ${cert.id}</span>
                                 </div>
                             </div>
-                        `;
-                        
-                        certificatesGrid.innerHTML += certificateHTML;
-                    });
+                        </div>
+                    `;
+                    
+                    certificatesGrid.innerHTML += certificateHTML;
+                });
 
-                    // Oculta a mensagem de carregamento
-                    if (loadingMessage) {
-                        loadingMessage.style.display = 'none';
-                    }
-
-                    // --- Filtro de certificados ---
-                    setupFilterButtons();
-                }, 500); // Pequeno delay para melhor UX
-            }
-
-            function setupFilterButtons() {
+                // --- Filtro de certificados ---
                 const filterButtons = document.querySelectorAll('.filter-btn');
                 const certificateItems = document.querySelectorAll('.certificate-item');
                 
@@ -1618,59 +1534,108 @@
                     });
                 });
             }
-
-            // Botão voltar ao topo funcional
-            document.querySelector('.back-to-top').addEventListener('click', function(e) {
-                e.preventDefault();
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
         });
 
-        // Função para visualizar certificado no modal
-        function viewCertificate(certId) {
-            const cert = certificatesData.find(c => c.id === certId);
-            if (!cert) {
-                alert("Certificado não encontrado!");
-                return;
-            }
-            
-            // Preenche os dados do modal
-            document.getElementById('modal-certificate-title').textContent = cert.title;
-            document.getElementById('modal-certificate-issuer').textContent = cert.issuer;
-            document.getElementById('modal-certificate-date').textContent = cert.date;
-            document.getElementById('modal-certificate-hours').textContent = cert.hours;
-            document.getElementById('modal-certificate-type').textContent = cert.type;
-            document.getElementById('modal-certificate-location').textContent = cert.location;
-            document.getElementById('modal-certificate-description').textContent = cert.description;
-            document.getElementById('modal-certificate-skills').textContent = cert.skills;
-            
-            // Configura o link de download
-            const downloadLink = document.getElementById('modal-download-link');
-            downloadLink.href = cert.file;
-            downloadLink.download = `Certificado - ${cert.title.substring(0, 30)}...pdf`;
-            
-            // Abre o modal
-            const modal = new bootstrap.Modal(document.getElementById('certificateModal'));
-            modal.show();
-        }
 
-        // Verifica se os PDFs existem (opcional - pode remover se não quiser)
-        async function checkPdfAvailability() {
-            for (const cert of certificatesData) {
-                try {
-                    const response = await fetch(cert.file, { method: 'HEAD' });
-                    console.log(`PDF ${cert.file}: ${response.ok ? 'Disponível' : 'Não encontrado'}`);
-                } catch (error) {
-                    console.warn(`Erro ao verificar ${cert.file}:`, error);
-                }
-            }
-        }
 
-        // Executa a verificação após o carregamento
-        window.addEventListener('load', checkPdfAvailability);
+
+
+
+
+        
+// Na função viewCertificate (substituir a função atual):
+function viewCertificate(certId) {
+    const cert = certificatesData.find(c => c.id === certId);
+    if (!cert) return;
+    
+    document.getElementById('modal-certificate-title').textContent = cert.title;
+    document.getElementById('modal-certificate-issuer').textContent = cert.issuer;
+    document.getElementById('modal-certificate-date').textContent = cert.date;
+    document.getElementById('modal-certificate-hours').textContent = cert.hours;
+    document.getElementById('modal-certificate-type').textContent = cert.type;
+    document.getElementById('modal-certificate-location').textContent = cert.location;
+    document.getElementById('modal-certificate-description').textContent = cert.description;
+    document.getElementById('modal-certificate-skills').textContent = cert.skills;
+    
+    // Armazena o nome do arquivo para download
+    document.getElementById('certificateModal').dataset.fileName = cert.file;
+    document.getElementById('certificateModal').dataset.certId = cert.id;
+    
+    // Abre o modal
+    const modal = new bootstrap.Modal(document.getElementById('certificateModal'));
+    modal.show();
+}
+
+// Nova função para download real:
+function downloadCertificate() {
+    const modal = document.getElementById('certificateModal');
+    const fileName = modal.dataset.fileName;
+    const certId = modal.dataset.certId;
+    
+    if (!fileName) {
+        alert("Arquivo não encontrado!");
+        return;
+    }
+    
+    // Aqui você precisa garantir que os arquivos PDF estejam na mesma pasta
+    // ou em uma pasta específica (ex: 'certificados/')
+    const filePath = `certificados/${fileName}`; // Ajuste o caminho conforme necessário
+    
+    // Cria um link temporário para download
+    const downloadLink = document.createElement('a');
+    downloadLink.href = filePath;
+    downloadLink.download = fileName;
+    downloadLink.style.display = 'none';
+    
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+}
+
+
+
+
+
+
+
+
+
+
+      // Na função loadCertificates, modifique a parte que gera o HTML dos cards:
+const certificateHTML = `
+    <div class="col-lg-4 col-md-6 certificate-item" data-category="${cert.category}">
+        <div class="certificate-card">
+            <div class="certificate-icon">
+                <i class="bi ${iconClass}"></i>
+            </div>
+            <h3 class="certificate-title">${cert.title}</h3>
+            <div class="certificate-issuer">${cert.issuer}</div>
+            <div class="certificate-date">
+                <i class="bi bi-calendar"></i> ${cert.date}
+            </div>
+            <div class="certificate-hours">
+                <i class="bi bi-clock"></i> Carga horária: <strong>${cert.hours}</strong>
+            </div>
+            <div class="certificate-tags">
+                <span class="certificate-tag">${cert.type}</span>
+                <span class="certificate-tag">${cert.location.includes('IFNMG') ? 'IFNMG' : cert.location}</span>
+            </div>
+            <div class="certificate-links">
+                <button class="btn btn-sm btn-outline-light" onclick="viewCertificate(${cert.id})">
+                    <i class="bi bi-eye"></i> Detalhes
+                </button>
+                <a href="certificados/${cert.file}" download class="btn btn-sm btn-primary">
+                    <i class="bi bi-download"></i> PDF
+                </a>
+            </div>
+        </div>
+    </div>
+`;
+
+
+
+
+
     </script>
 </body>
 </html>
